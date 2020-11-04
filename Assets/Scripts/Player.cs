@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour {
+public class Player : MonoBehaviour {
     private Animator controller;
     private Rigidbody2D body;
 
@@ -10,6 +10,7 @@ public class Test : MonoBehaviour {
     private const string RIGHT = "WalkRight";
     private const string BACK = "WalkBack";
     private const string FORWARD = "WalkForward";
+    private const string SPIN = "Spin";
 
     void Start() {
         controller = GetComponent<Animator>();
@@ -34,6 +35,9 @@ public class Test : MonoBehaviour {
         }  else if(Input.GetKey("down") || Input.GetKey("s")) {
             controller.Play(FORWARD);
             velocity.y = -5f;
+        } else if(Input.GetKey(KeyCode.LeftShift)) {
+            controller.Play("Spin");
+            velocity = Vector2.zero;
         } else {
             controller.Play(FORWARD);
             velocity = Vector2.zero; // Cancel any movement when no key is pressed
