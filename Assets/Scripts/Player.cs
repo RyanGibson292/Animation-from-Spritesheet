@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        DoMovement();
+        //DoMovement();
     }
 
     private void DoMovement() {
